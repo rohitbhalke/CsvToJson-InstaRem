@@ -28,6 +28,7 @@ app.get('/convert/csv/to/json', function(req, res){
 
 
     query = req.query;
+    console.log("Got Query as", query.q);
     if(query.q){
         remoteCSVURL = query.q;
         request.get(remoteCSVURL).pipe(converter);
