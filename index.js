@@ -13,7 +13,8 @@ var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
 var end;
-app.get('/convert/csv/to/json', function(req, res){
+
+app.get('', function(req, res){
     var arr = [];
     var remoteCSVURL, query;
 
