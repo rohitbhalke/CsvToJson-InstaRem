@@ -51,7 +51,7 @@ function sendMessage(data, socket){
             clearInterval(interval);
         }
         socket.emit('msg', data);
-    }, 6000);
+    }, 3000);
 }
 
 
