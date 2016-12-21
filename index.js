@@ -18,12 +18,14 @@ app.get('/convert/csv/to/json', function(req, res){
     var arr = [];
     var remoteCSVURL, query;
 
+    //convert stream of csv files in JSON format
     converter.on("record_parsed", function (jsonObj) {
         arr.push(jsonObj);
     });
 
+    // Indicates that the csv to json conversion is done
     converter.on("end_parsed",function(jsonObj){
-        console.log("*******************"); //here is your result json object
+        console.log("File converted successfully");
         end = true;
     });
 
@@ -46,6 +48,10 @@ app.get('/convert/csv/to/json', function(req, res){
     res.sendFile(__dirname + '/error.html');
 });
 
+// Fallback handled here
+app.get('/', function(req, res){
+    res.sendFile(__dirname + '/error.html');
+});
 
 function sendMessage(data, socket){
     var interval = setInterval(function(){
