@@ -40,8 +40,10 @@ app.get('/convert/csv/to/json', function(req, res){
             });
             sendMessage(arr, socket);
         });
+        res.sendFile(__dirname + '/index.html');
     }
-    res.sendFile(__dirname + '/index.html');
+    else
+    res.sendFile(__dirname + '/error.html');
 });
 
 
